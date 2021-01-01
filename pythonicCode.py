@@ -1,4 +1,6 @@
 # 한 문자열에 넣기
+from functools import reduce
+
 colors = ['red','Blue','Yellow','Green']
 
 # 방법 1.
@@ -79,3 +81,26 @@ for a in zip(alist,blist):
 x = (1,11,111)
 #튜플에 들어간거 다 더해줌
 print(sum(x))
+
+# lambda
+f = lambda x,y: x+y
+print(f(1,4))
+
+lambda x:x**2 if x%2 ==0 else x
+
+# map & reduce
+# 시퀀스 자료형 각 엥리먼트에 동일한 f를 적용함
+list1 = [1,2,3,4]
+f1 = lambda x: x**2
+
+#list 안붙이고 map만하면 위치만 나옴. 리스트를 붙여줘야함
+print(list(map(f1, list1)))
+
+#reduce
+# 똑같은 함수를 적용해서 통합 //맵과 함께 씀
+print(reduce(lambda x,y:x+y, [1,2,3,4,5]))
+
+def factorial(n):
+    return reduce(lambda x,y:x*y,range(1,n+1))
+
+print(factorial(5))
