@@ -1,5 +1,5 @@
 #  이걸 실제로 쓸 일은 없고 countvectorizer 이런 클래스 잘 되있음 ㅎㅎ...  sklearn 모듈에서..ㅎ
-
+import operator
 import os
 
 
@@ -99,6 +99,22 @@ if __name__ == "__main__":
     # 각 문서마다 corpus에 단어가 몇개가 있냐
     x_vector = get_count_vector(x_text, corpus)
 
-    compare_value = get_similarity_score(x_vector, 0)
+    selectNum = 38
 
-    print(compare_value)
+    compare_value = {i:v for i,v in enumerate(get_similarity_score(x_vector, selectNum))}
+    sorted_dict = sorted(compare_value.items(), reverse=True,key=operator.itemgetter(1))
+
+
+    print(sorted_dict)
+
+    list = []
+    baseball = 0
+    soccer = 0
+
+    for i in range(1,11):
+        if(sorted_dict[i][0] > 39):
+            soccer+=1
+        else:
+            baseball+=1
+
+    print("select Num : {} // baseball : {baseball}, soccer : {soccer}".format(selectNum, baseball=baseball, soccer=soccer))
