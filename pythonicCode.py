@@ -104,3 +104,30 @@ def factorial(n):
     return reduce(lambda x,y:x*y,range(1,n+1))
 
 print(factorial(5))
+
+# Asterisk
+# *를 의미함
+# 곱셈, 가변 인자 활용 등 사용함.
+
+def asterisk_test(a, **kargs):
+    print(a, kargs)
+# dict 타입으로 들어감.
+asterisk_test(1, e=1,b=3,d=4)
+
+# *로 unpacking할 수 있음. 튜플이랑 시퀀스 자료형 풀 수 있음.
+# ** dict 타입을 풀 수 있다.
+
+# Collections
+# deque : 스택과 큐를 지원하는 모듈, 리스트에 비해 효율적인 자료형
+# 로테이트랑 리버스를 지원함
+
+#OrderedDict
+# Dict와 달리, 데이터를 입력한 순대로 딕스로 반환함.
+# 벨류랑 키값으로 정렬 가능.
+
+#default dict
+# 밸류 초기값을 넣어줌줌
+# 디폴트 딕트로 만들로 오더드딕트에 넣어서 소트를 할 수 있음.
+
+#Counter
+# 시퀀스 타입의 엘리먼트의 갯수를 딕트로 반환.
