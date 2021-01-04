@@ -43,3 +43,16 @@ process
 5. 비교하고자 하는 문서 비교하기
 6. 얼마나 맞는지 측정하기
 '''
+
+# 백터 사이즈 체크
+# 여러 백터들의 사이즈가 같은지 체크
+# all(~) : ~에 리스트를 주어서 리스트 모두가 트루면 트루. and와 유사
+
+def is_matrix_equal(*matrix_variable):
+    print([matrix for matrix in zip(*matrix_variable)])
+
+x= [[2,2], [2,2]]
+y = [[2,5],[2,1]]
+is_matrix_equal(x,y)
+
+#매트릭스에 zip을 두번하면 서로 같은 위치의 원소가 묶인다.
