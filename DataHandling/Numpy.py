@@ -30,3 +30,75 @@ print(np.array(test))
 print(np.array(test).reshape(2,2,2))
 #reshape(-1,2) 이면 칼럼이 2개고 로우는 알아서 맞춰서 바꿔라
 # 1차원 어레이로 쫙 펴주는거 .flatten()
+
+#indexing
+# a[0,0] == a[0][0]
+
+#slicing
+#a[:,2:] 로우는 전체, 컬럼은 2행 이상.
+#x:y:z -> x 시작지점, y: 종료지점 z: 스탭
+
+#arange : array 범위를 지정하여 리스트를 생성
+# arange(0,5,0.5) floating point도 가능
+a = np.arange(30).reshape(-1,5)
+print(a)
+
+#ones, zeros and empty -> 0으로 채워주고 1로 채워주고 메모리 공간만 잡아주고 ㅇㅇ
+b = np.zeros(shape=(10,3), dtype=np.int8)
+print(b)
+
+# eye 대각선인 1인 행렬
+
+#random sampling 데이터 분포에 따른 랜덤한 값을 가져올 수 있음
+
+#axis : 기준, axis = 0 -> row기준 , axis = 1 -> col기준
+# 새로 생기는 부분이 axis 0, 기존이 1
+
+#concatenate : 어레이를 합치는 함수
+# np.concatenate((a,b), axis=0) row에 붙임
+# 속도가 느림. 메모리 공간을 확보하고 하나하나 붙어야함. 파이썬을 그냥 주소만 정해주면 되서 빠름.
+
+'''
+array 사칙 연산
+그냥 + 하면 되고 -하면 되고..;;
+*은 그냥 같은위치 곱해주는거고
+ 우리가 하는 매트릭스 곱은 x.dot(b)
+ 
+ broadcasting
+ 쉐잎이 다른 배열간 연산을 지원
+ 스칼라와 매트릭스 연산이 가능하게함 백터 매트릭스도 가능.
+ 
+ 비교를 할때 넘파이 어레이와 스칼라를 비교하면 결과가 넘파이 어레이로 나옴
+ any는 1개이상, all은 모두
+ 
+ np.logical.and
+ np.logical.not
+ np.logical.or
+ 
+ np.where -> 조건에 만족하는 위치를 뱉어냄
+ 
+ np.where(a>0, 3,2) -> 트루면 3, 아니ㅕㅁㄴ 2
+np.where(a>0) 0보다 큰 인덱스 반환
+
+최대값 최소값 
+argmax , argmin을 사용함.
+np.argmax(array) -> 인덱스 번호 리턴
+np.argmax(array, axis=1) -> 인덱스 번호 리턴
+
+넘파이는 워낙 많은 좋은 함수가 있기에 포문은 거의 안씀
+
+boolean index
+컨디션에 맞춰서 해당하는 인덱스만 뽑음. 트루인 인덱스만 줌
+test_array[condition]
+
+astype(np.int) int형식으로 바꿔줌.
+
+fancy index
+a[b], a는 값 b에는  인덱스가 주룩 나열된 어레이가 이씀
+인덱스에 맞는 밸류를 넣은 어레이가 나옴
+a.take(b) 같은 기능인데 이렇게 표현하는걸 추천함
+매트릭스도 가능
+
+기억할거
+where, broadcasting, fancy index, argmax, argmin, boolean index
+'''
