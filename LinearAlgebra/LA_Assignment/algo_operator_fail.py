@@ -6,6 +6,7 @@ if __name__ == "__main__":
 
     num_value.sort()
 
+
     def cal_max(num_value, num_op):
         max = 0
         num_operator = num_op[:]
